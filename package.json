@@ -1,9 +1,9 @@
 {
-  "name": "react-deno-app-starter",
+  "name": "@hodrobond/DenoPacman",
   "version": "1.0.0",
-  "description": "A starter template for React, Babel, Webpack And Typescript, with Deno on the server",
-  "repository": "https://github.com/dudiharush/react-deno-app-starter.git",
-  "author": "David Harush <davidharush@gmail.com>",
+  "description": "This will eventually become Pacman",
+  "repository": "https://github.com/Hodrobond/DenoPacman.git",
+  "author": "",
   "license": "MIT",
   "scripts": {
     "check-types": "tsc",
