@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import gridReducer, { GridReducerInterface } from './grid';
-import userInputReducer, { userInputStateInterface } from './userInput';
+import gridReducer, { GridReducerInterface } from './grid'
+import userInputReducer, { userInputStateInterface } from './userInput'
 
 export interface ReducerStateInterface {
   gridReducer?: GridReducerInterface
@@ -10,4 +10,4 @@ export interface ReducerStateInterface {
 export default combineReducers({
   gridReducer,
   userInputReducer,
-});
+})

@@ -1,69 +1,61 @@
-import React, { useState, useEffect, FunctionComponent } from "react";
-import { connect } from 'react-redux';
-import { setUserDirection } from '../../../../actions/userInput';
-import { STATES } from '../../../../constants/grid';
+import React, { useState, useEffect, FunctionComponent } from 'react'
+import { connect } from 'react-redux'
+import { setUserDirection, UserInterfaceTypes } from '../../../../actions/userInput'
+import { STATES } from '../../../../constants/grid'
 
-const useKeyPress = (targetKey: string) => {
-  const [keyPressed, setKeyPressed] = useState(false);
+const useKeyPress = (targetKey: string): boolean => {
+  const [keyPressed, setKeyPressed] = useState(false)
 
-  function downHandler({ key }: { key: string }) {
+  const downHandler = ({ key }: { key: string }): void => {
     if (key === targetKey) {
-      setKeyPressed(true);
+      setKeyPressed(true)
     }
   }
 
-  const upHandler = ({ key }: { key: string }) => {
+  const upHandler = ({ key }: { key: string }): void => {
     if (key === targetKey) {
-      setKeyPressed(false);
+      setKeyPressed(false)
     }
-  };
+  }
 
   React.useEffect(() => {
-    window.addEventListener("keydown", downHandler);
-    window.addEventListener("keyup", upHandler);
+    window.addEventListener('keydown', downHandler)
+    window.addEventListener('keyup', upHandler)
 
-    return () => {
-      window.removeEventListener("keydown", downHandler);
-      window.removeEventListener("keyup", upHandler);
-    };
-  });
+    return (): void => {
+      window.removeEventListener('keydown', downHandler)
+      window.removeEventListener('keyup', upHandler)
+    }
+  })
 
-  return keyPressed;
-};
+  return keyPressed
+}
 
 export interface KeypressWrapperInterface {
   children?: React.ReactNode
-  dispatch: React.Dispatch<any>
+  dispatch: React.Dispatch<UserInterfaceTypes>
 }
 
-const KeypressRotationWrapper: FunctionComponent<KeypressWrapperInterface> = ({
-  dispatch,
-  children,
-}) => {
-  const downPress = useKeyPress("ArrowDown");
-  const upPress = useKeyPress("ArrowUp");
-  const leftPress = useKeyPress("ArrowLeft");
-  const rightPress = useKeyPress("ArrowRight");
+const KeypressRotationWrapper: FunctionComponent<KeypressWrapperInterface> = ({ dispatch, children }) => {
+  const downPress = useKeyPress('ArrowDown')
+  const upPress = useKeyPress('ArrowUp')
+  const leftPress = useKeyPress('ArrowLeft')
+  const rightPress = useKeyPress('ArrowRight')
 
   useEffect(() => {
-    if (downPress) dispatch(setUserDirection(STATES.DOWN));
-  }, [downPress]);
+    if (downPress) dispatch(setUserDirection(STATES.DOWN))
+  }, [downPress])
   useEffect(() => {
-    if (leftPress) dispatch(setUserDirection(STATES.LEFT));
-  }, [leftPress]);
+    if (leftPress) dispatch(setUserDirection(STATES.LEFT))
+  }, [leftPress])
   useEffect(() => {
-    if (rightPress) dispatch(setUserDirection(STATES.RIGHT));
-  }, [rightPress]);
+    if (rightPress) dispatch(setUserDirection(STATES.RIGHT))
+  }, [rightPress])
   useEffect(() => {
-    if (upPress) dispatch(setUserDirection(STATES.UP));
-  }, [upPress]);
+    if (upPress) dispatch(setUserDirection(STATES.UP))
+  }, [upPress])
 
-
-  return (
-    <div>
-      {children}
-    </div>
-  );
+  return <div>{children}</div>
 }
 
-export default connect()(KeypressRotationWrapper);
+export default connect()(KeypressRotationWrapper)

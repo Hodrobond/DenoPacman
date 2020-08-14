@@ -1,6 +1,6 @@
-import Grid from '../grid';
-import { BOARDS } from '../../constants/grid';
-import { movePacman } from '../../actions/grid';
+import Grid from '../grid'
+import { BOARDS } from '../../constants/grid'
+import { movePacman } from '../../actions/grid'
 
 const initialBoard = {
   pacman: BOARDS.DEFAULT.PACMAN,
@@ -14,14 +14,11 @@ const initialBoard = {
 }
 
 it('Can Initialize', () => {
-  const initialized = Grid();
-  expect(initialized.pacman).toEqual(BOARDS.DEFAULT.PACMAN);
+  const initialized = Grid()
+  expect(initialized.pacman).toEqual(BOARDS.DEFAULT.PACMAN)
 })
 
 it('Can move Pacman', () => {
-  const initialized = Grid(
-    initialBoard,
-    movePacman('right'),
-  );
-  expect(initialized.pacman).toEqual([0,1]);
+  const initialized = Grid(initialBoard, movePacman('right'))
+  expect(initialized.pacman).toEqual([0, 1])
 })

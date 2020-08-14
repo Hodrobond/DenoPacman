@@ -1,14 +1,14 @@
-import { SET_USER_DIRECTION } from '../actions/userInput';
+import { SET_USER_DIRECTION } from '../actions/userInput'
 
 const initialState = {
   direction: 'right',
 }
 
-export interface userInputStateInterface {
+export interface UserInputStateInterface {
   direction: string
 }
 
-export interface userInputActionsInterface {
+export interface UserInputActionsInterface {
   type?: string
   payload?: {
     direction?: string
@@ -16,26 +16,18 @@ export interface userInputActionsInterface {
 }
 
 const userInputReducer: (
-  state: userInputStateInterface,
-  action?: userInputActionsInterface
-) => userInputStateInterface = (
-  state = initialState,
-  {
-    type,
-    payload: {
-      direction = 'right',
-    } = {},
- } = {}
-) => {
-    switch (type) {
-      case SET_USER_DIRECTION:
-        return {
-            ...state,
-            direction,
-        }
-      default:
-        return state;
-    }
-};
+  state: UserInputStateInterface,
+  action?: UserInputActionsInterface,
+) => UserInputStateInterface = (state = initialState, { type, payload: { direction = 'right' } = {} } = {}) => {
+  switch (type) {
+    case SET_USER_DIRECTION:
+      return {
+        ...state,
+        direction,
+      }
+    default:
+      return state
+  }
+}
 
-export default userInputReducer;
+export default userInputReducer

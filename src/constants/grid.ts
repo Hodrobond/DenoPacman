@@ -1,15 +1,15 @@
 export const BOARDS = {
   DEFAULT: {
-    PACMAN: [0,0],
+    PACMAN: [0, 0],
     GHOSTS: {
-      BLINKY: [0,0],
-      INKY: [0,0],
-      PINKY: [0,0],
-      CLYDE: [0,0],
+      BLINKY: [0, 0],
+      INKY: [0, 0],
+      PINKY: [0, 0],
+      CLYDE: [0, 0],
     },
-    GRID: [[0,0],[0,0]],
-  }
-};
+    GRID: [[0, 0], [0, 0]],
+  },
+}
 
 export const DIRECTIONS = {
   UP: 'up',
@@ -23,5 +23,4 @@ export const STATES = {
   LEFT: 'left',
   RIGHT: 'right',
   UP: 'up',
-};
-
+}

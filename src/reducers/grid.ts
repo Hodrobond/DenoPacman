@@ -1,6 +1,6 @@
-import { MOVE_PACMAN } from '../actions/grid';
-import { BOARDS } from '../constants/grid';
-import { hasCollided, getNextPosition, isWall } from '../util/grid';
+import { MOVE_PACMAN } from '../actions/grid'
+import { BOARDS } from '../constants/grid'
+import { hasCollided, getNextPosition, isWall } from '../util/grid'
 
 const initialState = {
   pacman: BOARDS.DEFAULT.PACMAN,
@@ -31,42 +31,31 @@ export interface GridReducerActionInterface {
   }
 }
 
-const userInputReducer: (
-  state: GridReducerInterface,
-  action?: GridReducerActionInterface
-) => GridReducerInterface = (
+const userInputReducer: (state: GridReducerInterface, action?: GridReducerActionInterface) => GridReducerInterface = (
   state = initialState,
-  {
-    type,
-    payload: {
-      direction = 'right',
-    } = {},
-  } = {}
+  { type, payload: { direction = 'right' } = {} } = {},
 ) => {
-  const {
-    pacman,
-    grid
-  } = state;
+  const { pacman, grid } = state
   switch (type) {
     case MOVE_PACMAN:
       const newPosition = getNextPosition(pacman, direction)
       if (isWall(newPosition, grid)) {
         // block movement
-        return state;
+        return state
       }
       Object.entries(state.ghosts).forEach(ghost => {
-        const [name, position] = ghost;
+        const [name, position] = ghost
         if (hasCollided(newPosition, position)) {
           // Pacman ate a ghost, reset it
         }
       })
       return {
-          ...state,
-          pacman: newPosition,
+        ...state,
+        pacman: newPosition,
       }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default userInputReducer;
+export default userInputReducer

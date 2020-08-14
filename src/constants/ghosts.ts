@@ -3,4 +3,4 @@ export const GHOSTS = {
   PINKY: '#FFB8FF',
   INKY: '#00FFFF',
   CLYDE: '#FFB852',
-};
+}
