@@ -1,41 +1,28 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "moduleResolution": "node",
-    "noEmit": true,
-    "skipLibCheck": true,
-    "isolatedModules": true,
-    "target": "es5",
-    "module": "commonjs",
-    "allowJs": false,
-    "allowUmdGlobalAccess": false,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "alwaysStrict": true,
-    "checkJs": false,
-    "esModuleInterop": true,
-    "disableSizeLimit": false,
+    "module": "ES6",
+    "outDir": "./dist",
+    "rootDir": "packages",
     "jsx": "react",
-    "jsxFactory": "React.createElement",
-    "lib": ["DOM"],
-    "noFallthroughCasesInSwitch": false,
+    "emitDeclarationOnly": true,
+    "declaration": true,
     "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitUseStrict": false,
-    "noStrictGenericChecks": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveConstEnums": false,
-    "removeComments": false,
-    "resolveJsonModule": true,
-    "strict": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "suppressExcessPropertyErrors": false,
-    "suppressImplicitAnyIndexErrors": false
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "target": "es6",
+    "types": ["react", "jest"],
+    "lib": ["es2017", "dom"],
+    "baseUrl": "./",
+    "paths": {
+      "@hodrobond/*": [
+        "packages/*"
+       ],
+    }
   },
-  "include": ["src", "config"]
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "dist/**",
+    "__tests__"
+  ]
 }
